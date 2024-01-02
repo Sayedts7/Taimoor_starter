@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taimoor_starter/ui/custom_widgets/custom_text_field.dart';
+import 'package:taimoor_starter/ui/login/login_view.dart';
 import 'package:taimoor_starter/ui/splash_services.dart';
 
 import '../core/utils/mySize.dart';
@@ -15,22 +16,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  SplashServices services = SplashServices();
+  // SplashServices services = SplashServices();
   @override
   void initState() {
-    services.isLogin(context);
+    // services.isLogin(context);
 
     super.initState();
 
     // Add a delay of 3 seconds before navigating to the next screen
-    // Future.delayed(const Duration(seconds: 3), () {
-    //   // Navigate to the next screen (replace 'HosreRidingScreen' with your screen)
-    //   Navigator.of(context).pushReplacement(
-    //     MaterialPageRoute(
-    //       builder: (context) => StartupScreen1(),
-    //     ),
-    //   );
-    // });
+    Future.delayed(const Duration(seconds: 3), () {
+      // Navigate to the next screen (replace 'HosreRidingScreen' with your screen)
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => LoginView(),
+        ),
+      );
+    });
   }
   @override
   Widget build(BuildContext context) {
