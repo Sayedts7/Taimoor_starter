@@ -1,14 +1,23 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import 'package:taimoor_starter/ui/login/login_provider.dart';
+import 'package:taimoor_starter/ui/home_screen/homescreen.dart';
 import 'package:taimoor_starter/ui/splash_screen.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
+// Set preferred orientations to portrait only
 
-  // Firebase.initializeApp();
-  runApp(const MyApp());
+
+
+  runApp(const MyApp());WidgetsFlutterBinding.ensureInitialized();
+  unawaited(MobileAds.instance.initialize());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 }
 
 class MyApp extends StatelessWidget {
@@ -17,21 +26,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => LoginProvider()),
+    return MaterialApp(
+            title: 'WA Direct',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
 
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-      
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const SplashScreen(),
-      ),
-    );
+     colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+     useMaterial3: true,
+            ),
+            home: const SplashScreen(),
+          );
   }
 }
 

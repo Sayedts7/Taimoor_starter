@@ -96,7 +96,7 @@ class CustomTextField13 extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: const TextStyle(
-                color: ThemeColors.grey1,
+                color: ThemeColors.grey4,
                 fontSize: 12,
                 fontWeight: FontWeight.w400),
             isDense: true,
